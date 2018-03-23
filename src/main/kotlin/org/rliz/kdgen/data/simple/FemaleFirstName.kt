@@ -1,21 +1,13 @@
 package org.rliz.kdgen.data.simple
 
 import org.rliz.kdgen.data.LazyValue
+import org.rliz.kdgen.data.primitive.CountingInt
 
-class FemaleFirstName : LazyValue<String> {
+class FemaleFirstName(private val countingInt: CountingInt = CountingInt()) : LazyValue<String> {
 
-    private var actual: String? = null
-
-    override fun eval(): String = actual ?: set(source[counter++ % source.size])
-
-    private fun set(name: String): String {
-        actual = name
-        return actual!!
-    }
+    override fun eval(): String = source[countingInt.eval() % source.size]
 
     companion object {
-        private var counter = 0
-
         private val source = listOf(
                 "Mary",
                 "Patricia",
