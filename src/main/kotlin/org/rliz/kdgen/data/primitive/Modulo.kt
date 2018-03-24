@@ -11,4 +11,4 @@ class Modulo<out T : Any>(private val base: List<T>,
     }
 }
 
-fun <I : Any> List<I>.modulate(counter: Counter = Counter()) = { Modulo(this, CountingInt(counter)) }
+fun <I : Any> List<I>.cycle(counter: Counter = Counter()) = { Modulo(this, CountingInt(counter)) }
