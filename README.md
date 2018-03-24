@@ -153,6 +153,20 @@ always yield
 {"firstName":"James","lastName":"Johnson","age":22}
 {"firstName":"Patricia","lastName":"Williams","age":94}
 ```
+## Generative primitive overview
+
+* AlternatingBoolean: yields true or false
+* CountingInt: monotonically increasing integer
+* CountingString: a CountingInt with a string prefix and suffix
+* Modulo: cycles through fixed set of values
+
+## Simple generative types
+* City: name of a city
+* FemaleFirstName: female first names
+* MaleFirstName: well, I'm sure you know
+* FirstName: alternates between male and female first names
+* LastName: yields last names
+* Text(x): yields x words of lorem ipsum nonsense text
 
 ## Pools
 
