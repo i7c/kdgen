@@ -2,11 +2,14 @@ package org.rliz.kdgen.data.simple
 
 import org.rliz.kdgen.data.LazyValue
 import org.rliz.kdgen.data.primitive.CountingInt
+import org.rliz.kdgen.state.Counter
 import java.lang.String.join
 
-class Text(private val length: Int, private val countingInt: CountingInt = CountingInt()) : LazyValue<String> {
+class Text(private val length: Int, private val countingInt: CountingInt = CountingInt(c)) : LazyValue<String> {
 
     companion object {
+        private val c = Counter()
+
         private val words = listOf(
                 "Lorem",
                 "ipsum",
