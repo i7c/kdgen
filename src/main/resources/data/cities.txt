@@ -1,0 +1,242 @@
+Brasília
+Brazzaville
+Havana
+Addis Ababa
+Santa Cruz de la Sierra
+Giza
+Tunis
+Chengdu
+Saitama
+Sydney
+Bogotá
+Mumbai
+New Taipei City
+San Diego
+Kampala
+Singapore
+Vienna
+San Antonio
+Kano
+Rio de Janeiro
+Abuja
+Omsk
+Phnom Penh
+Cape Town
+Vijayawada
+Fortaleza
+Zhongshan
+Dalian
+Kinshasa
+Ningbo
+Johannesburg
+Khartoum
+Mashhad
+Shijiazhuang
+Hamburg
+Kolkata
+Chicago
+Barranquilla
+Guangzhou
+Bulawayo
+Lagos
+Abu Dhabi
+Mandalay
+Brisbane
+Kaohsiung
+Tokyo
+Birmingham
+Islamabad
+Warsaw
+Barcelona
+Quito
+Hyderabad
+Cologne
+Surabaya
+Seoul
+Durban
+Jinan
+Quanzhou
+Rawalpindi
+Medellin
+Algiers
+New York City
+Tangshan
+Hiroshima
+Kabul
+Bandung
+Baghdad
+Monterrey
+Bhopal
+Belo Horizonte
+Cali
+Gujranwala
+Kyoto
+Philadelphia
+Douala
+Rostov-on-Don
+Kawasaki
+Berlin
+Yerevan
+Sofia
+Ho Chi Minh City
+Tabriz
+Hanoi
+Ibadan
+Tijuana
+Osaka
+Madrid
+Jeddah
+Xi'an
+Abidjan
+Makassar
+Pune
+Salvador
+Delhi
+Calgary
+Yangon
+Maputo
+Dar es Salaam
+Sana'a
+Prague
+Minsk
+Montreal
+Isfahan
+Daegu
+Fuzhou
+Chennai
+İzmir
+Palembang
+Karachi
+Toronto
+Patna
+Fukuoka
+Chongqing
+Luanda
+Kobe
+Qingdao
+Sapporo
+Incheon
+Dongguan
+Quezon City
+Mexico City
+Riyadh
+Dallas
+Kanpur
+Davao City
+Ankara
+Tashkent
+Caloocan
+Managua
+Campinas
+Houston
+Dhaka
+Daejeon
+Jakarta
+Busan
+Wuhan
+Buenos Aires
+Lanzhou
+Astana
+Bangkok
+Kiev
+Tehran
+Chaozhou
+Foshan
+Semarang
+Caracas
+Milan
+Nanjing
+Kuala Lumpur
+Yaoundé
+Guatemala City
+London
+Basra
+Montevideo
+T'bilisi
+Ahmedabad
+Rome
+Paris
+Auckland
+Curitiba
+Harbin
+Xiamen
+Cairo
+Santiago
+Alexandria
+Porto Alegre
+Lusaka
+Beijing
+Shenzhen
+Pyongyang
+Yokohama
+Changchun
+Almaty
+Wenzhou
+Shiraz
+Karaj
+Tianjin
+Ekurhuleni
+Changsha
+Dakar
+Taichung
+Kharkiv
+Zunyi
+Nairobi
+Munich
+São Paulo
+Jaipur
+Recife
+Istanbul
+Yekaterinburg
+Lima
+Accra
+Moscow
+Peshawar
+Tripoli
+Lahore
+Rosario
+Dubai
+Nizhny Novgorod
+Melbourne
+Fez
+Bengaluru
+Los Angeles
+Kwangju
+Shanghai
+Ouagadougou
+Suzhou
+Budapest
+Suwon
+Faisalabad
+Hyderabad
+Kathmandu
+Surat
+Taipei
+Maracaibo
+Lucknow
+Hefei
+Saint Petersburg
+Oran
+Nagoya
+Hangzhou
+Phoenix
+Visakhapatnam
+Bucharest
+Manila
+Harare
+Casablanca
+Hong Kong
+Córdoba
+Nagpur
+Belgrade
+Baku
+Tainan
+Guayaquil
+Chittagong
+Novosibirsk
+Medan
+Zhengzhou
+Ulsan
+Shenyang
+Shantou
+Guadalajara
