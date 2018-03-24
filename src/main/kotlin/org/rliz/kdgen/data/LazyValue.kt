@@ -14,6 +14,8 @@ interface LazyValue<out T : Any> {
 
     infix fun <I2 : Any> with(that: LazyValue<I2>) = Pair(this, that)
 
+    @Deprecated("Experimental. Might be removed.", replaceWith = ReplaceWith("eval()"))
+    operator fun unaryPlus(): T = eval()
 }
 
 infix fun <I1 : Any, I2 : Any, O : Any> Pair<LazyValue<I1>, LazyValue<I2>>.transform(transformation: (I1, I2) -> O) =
