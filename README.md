@@ -118,7 +118,7 @@ turned into something like:
 ```json
 {
     "firstName": "Mary",
-    "lastName": "Johnson",
+    "lastName": "Smith",
     "age": 40
 }
 ```
@@ -145,7 +145,14 @@ invoking the Modulo constructor directly, we invoke the factory, with the
 advantage, that all instances coming from this factory share their own
 dedicated counter internally. If we used Modulo directly, all Modulos would
 share a counter, which might not be what we want. Specifying Random with a seed
-ensures reproducibility of the results.
+ensures reproducibility of the results. So, generating three Persons, will
+always yield
+
+```json
+{"firstName":"Mary","lastName":"Smith","age":61}
+{"firstName":"James","lastName":"Johnson","age":22}
+{"firstName":"Patricia","lastName":"Williams","age":94}
+```
 
 ## Pools
 
