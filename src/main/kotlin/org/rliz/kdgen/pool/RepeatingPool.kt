@@ -5,9 +5,8 @@ import org.rliz.kdgen.sink.Sink
 
 class RepeatingPool<out T : Any>(
         private val repetitions: Int,
-        private val factory: () -> T,
-        vararg sinks: Sink
-) : BasePool<T>(factory, *sinks) {
+        private val backing: Pool<T>
+) : Pool<T> by backing {
 
     private var currentReps = 0
 
@@ -16,9 +15,8 @@ class RepeatingPool<out T : Any>(
 
     override fun getNew(): LazyValue<T> {
         currentReps = 1
-        return super.getNew()
+        return backing.getNew()
     }
 }
 
-fun <T : Any> repeatPool(repetitions: Int, factory: () -> T) = RepeatingPool(repetitions, factory)
-fun <T : Any> repeatPool(repetitions: Int, fws: FactoryWithSink<T>) = RepeatingPool(repetitions, fws.factory, fws.sink)
+infix fun <T : Any, P : Pool<T>> P.repeating(repetitions: Int) = RepeatingPool(repetitions, this)

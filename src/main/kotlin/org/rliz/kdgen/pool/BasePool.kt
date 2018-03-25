@@ -27,23 +27,11 @@ open class BasePool<out T : Any>(private val factory: () -> T, vararg sinks: Sin
         last!!
     } else throw RuntimeException("Cannot get existing element on empty pool.")
 
-    override fun seal() {
-        sealed = true
-    }
-
     override fun size(): Int = size
 
     override fun nonEmpty() = size() > 0
 
     override fun empty() = !nonEmpty()
-
-    override fun getNewAndSeal(): LazyValue<T> {
-        val t = safeProduceElement()
-        seal()
-        last = t
-        writeOut(t)
-        return t
-    }
 
     private fun guard() {
         if (sealed) throw RuntimeException("Cannot read a sealed pool. Have you accessed a sealed pool from deferred operations such as 'transform'?")
@@ -64,5 +52,5 @@ fun <T : Any> pool(fws: FactoryWithSink<T>) = BasePool(fws.factory, fws.sink)
 fun <T : Any> pool(factory: () -> T) = BasePool(factory)
 fun <T : Any> root(factory: () -> T): LazyValue<T> {
     val rootPool = pool(factory pourInto DiscardSink())
-    return rootPool.getNewAndSeal()
+    return rootPool.getNew()
 }
