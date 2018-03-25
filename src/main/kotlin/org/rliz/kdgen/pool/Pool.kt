@@ -15,19 +15,9 @@ interface Pool<out T : Any> {
     fun getNew(): LazyValue<T>
 
     /**
-     * same as get, but seals to pool directly afterwards.
-     */
-    fun getNewAndSeal(): LazyValue<T>
-
-    /**
      * returns any existing element.
      */
     fun getAnyExisting(): LazyValue<T>
-
-    /**
-     * seal the pool, no more items can be added.
-     */
-    fun seal(): Unit
 
     /**
      * return the size of the pool
