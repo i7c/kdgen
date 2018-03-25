@@ -156,6 +156,8 @@ always yield
 ## Generative primitive overview
 
 * AlternatingBoolean: yields true or false
+* HouseNumber: yields seemingly random housenumbers
+* ExtendedHouseNumber: like HouseNumber but with arbitrary supplements like "/2"
 * CountingInt: monotonically increasing integer
 * CountingString: a CountingInt with a string prefix and suffix
 * Modulo: cycles through fixed set of values
