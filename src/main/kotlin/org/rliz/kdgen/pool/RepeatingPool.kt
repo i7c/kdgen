@@ -1,7 +1,6 @@
 package org.rliz.kdgen.pool
 
 import org.rliz.kdgen.data.LazyValue
-import org.rliz.kdgen.sink.Sink
 
 class RepeatingPool<out T : Any>(
         private val repetitions: Int,
