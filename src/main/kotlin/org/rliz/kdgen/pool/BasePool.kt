@@ -7,7 +7,7 @@ import org.rliz.kdgen.sink.DiscardSink
 import org.rliz.kdgen.sink.Sink
 
 @JsonIgnoreType
-open class BasePool<T : Any>(private val factory: () -> T, vararg sinks: Sink) : Pool<T> {
+open class BasePool<out T : Any>(private val factory: () -> T, vararg sinks: Sink) : Pool<T> {
     private var last: LazyValue<T>? = null
 
     private var sealed = false
@@ -32,6 +32,10 @@ open class BasePool<T : Any>(private val factory: () -> T, vararg sinks: Sink) :
     }
 
     override fun size(): Int = size
+
+    override fun nonEmpty() = size() > 0
+
+    override fun empty() = !nonEmpty()
 
     override fun getNewAndSeal(): LazyValue<T> {
         val t = safeProduceElement()
