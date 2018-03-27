@@ -1,0 +1,41 @@
+buildscript {
+    ext.kotlin_version = '1.2.31'
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'maven'
+
+group = 'org.rliz.kdgen'
+version = '0.0.1-SNAPSHOT'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile 'org.apache.commons:commons-io:1.3.2'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1'
+}
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/kotlin'
+}
+
+jar {
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
