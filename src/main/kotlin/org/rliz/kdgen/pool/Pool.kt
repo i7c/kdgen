@@ -2,7 +2,7 @@ package org.rliz.kdgen.pool
 
 import org.rliz.kdgen.data.LazyValue
 
-interface Pool<out T : Any> {
+interface Pool<T : Any> {
 
     /**
      * get any item, new or existing.
@@ -18,6 +18,8 @@ interface Pool<out T : Any> {
      * returns any existing element.
      */
     fun getAnyExisting(): LazyValue<T>
+
+    fun push(t: LazyValue<T>): LazyValue<T>
 
     /**
      * return the size of the pool

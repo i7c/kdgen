@@ -2,7 +2,7 @@ package org.rliz.kdgen.pool
 
 import org.rliz.kdgen.data.LazyValue
 
-class RepeatingPool<out T : Any>(
+class RepeatingPool<T : Any>(
         private val repetitions: Int,
         private val backing: Pool<T>
 ) : Pool<T> by backing {

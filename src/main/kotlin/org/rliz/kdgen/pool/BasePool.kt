@@ -7,7 +7,8 @@ import org.rliz.kdgen.sink.DiscardSink
 import org.rliz.kdgen.sink.Sink
 
 @JsonIgnoreType
-open class BasePool<out T : Any>(private val factory: () -> T, vararg sinks: Sink) : Pool<T> {
+open class BasePool<T : Any>(private val factory: () -> T, vararg sinks: Sink) : Pool<T> {
+
     private var last: LazyValue<T>? = null
 
     private var sealed = false
@@ -33,11 +34,19 @@ open class BasePool<out T : Any>(private val factory: () -> T, vararg sinks: Sin
 
     override fun empty() = !nonEmpty()
 
+    override fun push(t: LazyValue<T>): LazyValue<T> {
+        guard()
+        size++
+        writeOut(t)
+        last = t
+        return t
+    }
+
     private fun guard() {
         if (sealed) throw RuntimeException("Cannot read a sealed pool. Have you accessed a sealed pool from deferred operations such as 'transform'?")
     }
 
-    private fun writeOut(t: LazyExpression<T>) {
+    private fun writeOut(t: LazyValue<T>) {
         sinks.forEach { s -> s.write(t) }
     }
 

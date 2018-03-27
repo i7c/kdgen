@@ -1,10 +1,9 @@
 package org.rliz.kdgen.pool
 
-import jdk.Exported
 import org.rliz.kdgen.data.LazyValue
 import java.util.*
 
-class UniqueSlicePool<out T : Any>(
+class UniqueSlicePool<T : Any>(
         private val maxDistributionFactor: Int,
         private val backing: Pool<T>,
         private val initialSlices: Int = 0
