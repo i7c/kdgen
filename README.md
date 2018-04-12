@@ -156,18 +156,20 @@ always yield
 ## Generative primitive overview
 
 * AlternatingBoolean: yields true or false
-* HouseNumber: yields seemingly random housenumbers
-* ExtendedHouseNumber: like HouseNumber but with arbitrary supplements like "/2"
 * CountingInt: monotonically increasing integer
 * CountingString: a CountingInt with a string prefix and suffix
 * Modulo: cycles through fixed set of values
 
 ## Simple generative types
 * City: name of a city
+* HouseNumber: yields seemingly random housenumbers
+* ExtendedHouseNumber: like HouseNumber but with arbitrary supplements like "/2"
+
+* FirstName: alternates between male and female first names
 * FemaleFirstName: female first names
 * MaleFirstName: well, I'm sure you know
-* FirstName: alternates between male and female first names
 * LastName: yields last names
+
 * Text(x): yields x words of lorem ipsum nonsense text
 
 ## Pools
