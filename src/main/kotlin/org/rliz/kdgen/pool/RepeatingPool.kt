@@ -8,13 +8,16 @@ class RepeatingPool<T : Any>(
 ) : Pool<T> by backing {
 
     private var currentReps = 0
+    private var last: LazyValue<T>? = null
 
     override fun get(): LazyValue<T> =
-            if ((currentReps++) < repetitions && nonEmpty()) getAnyExisting() else getNew()
+            if ((currentReps++) < repetitions && last != null) last!! else getNext()
 
-    override fun getNew(): LazyValue<T> {
+    fun getNext(): LazyValue<T> {
         currentReps = 1
-        return backing.getNew()
+        val next = backing.get()
+        last = next
+        return next
     }
 }
 
