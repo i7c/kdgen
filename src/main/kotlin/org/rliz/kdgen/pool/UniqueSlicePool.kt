@@ -16,7 +16,7 @@ class UniqueSlicePool<T : Any>(
     fun get(key: Int): LazyValue<T> = slice[key].let {
         if (it.isNotEmpty()) it.poll()
         else {
-            val next = backing.getNew()
+            val next = backing.get()
             var i = Math.min(maxDistributionFactor, slice.size - 1)
             while (i > 0) {
                 if (nextSlice == key) movePointer()

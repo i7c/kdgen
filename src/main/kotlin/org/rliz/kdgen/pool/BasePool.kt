@@ -9,24 +9,22 @@ import org.rliz.kdgen.sink.Sink
 @JsonIgnoreType
 open class BasePool<T : Any>(private val factory: () -> T, vararg sinks: Sink) : Pool<T> {
 
-    private var last: LazyValue<T>? = null
-
     private var sealed = false
     private var sinks = sinks
     private var size = 0
-    override fun get(): LazyValue<T> = getNew()
 
-    override fun getNew(): LazyValue<T> {
-        val t = safeProduceElement()
-        last = t
+    override fun get(): LazyValue<T> {
+        val t = LazyExpression({ factory() })
+        return placeInPool(t)
+    }
+
+    override fun push(t: LazyValue<T>) = placeInPool(t)
+
+    fun placeInPool(t: LazyValue<T>): LazyValue<T> {
+        size++
         writeOut(t)
         return t
     }
-
-    override fun getAnyExisting(): LazyValue<T> = if (last != null) {
-        guard()
-        last!!
-    } else throw RuntimeException("Cannot get existing element on empty pool.")
 
     override fun size(): Int = size
 
@@ -34,32 +32,11 @@ open class BasePool<T : Any>(private val factory: () -> T, vararg sinks: Sink) :
 
     override fun empty() = !nonEmpty()
 
-    override fun push(t: LazyValue<T>): LazyValue<T> {
-        guard()
-        size++
-        writeOut(t)
-        last = t
-        return t
-    }
-
-    private fun guard() {
-        if (sealed) throw RuntimeException("Cannot read a sealed pool. Have you accessed a sealed pool from deferred operations such as 'transform'?")
-    }
-
     private fun writeOut(t: LazyValue<T>) {
         sinks.forEach { s -> s.write(t) }
-    }
-
-    private fun safeProduceElement(): LazyExpression<T> {
-        guard()
-        size++
-        return LazyExpression({ factory() })
     }
 }
 
 fun <T : Any> pool(fws: FactoryWithSink<T>) = BasePool(fws.factory, fws.sink)
 fun <T : Any> pool(factory: () -> T) = BasePool(factory)
-fun <T : Any> root(factory: () -> T): LazyValue<T> {
-    val rootPool = pool(factory pourInto DiscardSink())
-    return rootPool.getNew()
-}
+fun <T : Any> root(factory: () -> T): LazyValue<T> = pool(factory pourInto DiscardSink()).get()
