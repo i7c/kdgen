@@ -5,6 +5,7 @@ import java.io.File
 
 class FileJsonSink(val file: File) : Sink() {
 
-    override fun write(s: Any) = file.appendText("${mapper.writeValueAsString(s)}\n")
+    constructor(path: String) : this(File(path))
 
+    override fun write(s: Any) = file.appendText("${mapper.writeValueAsString(s)}\n")
 }
